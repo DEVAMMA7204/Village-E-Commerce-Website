@@ -1,0 +1,919 @@
+<!-- Homepage with featured products, categories, language toggle -->
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Village Handmade Store</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div class="logo">🧺 Village Handmade</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+      <a href="cart.html">Cart</a>
+      <a href="user/dashboard.html">User Dashboard</a>
+      <a href="seller/dashboard.html">Seller Dashboard</a>
+    </nav>
+  </header>
+
+  <div style="text-align:center; margin: 20px;">
+    <label for="languageSelect">🌐 Choose Language:</label>
+    <select id="languageSelect" onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="hi">हिंदी</option>
+    </select>
+  </div>
+  <div class="theme-toggle">
+    <button onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+  </div>
+
+
+  <h1>🧺 Village Handmade Store</h1>
+  <p>Connecting Villagers with the World</p>
+
+  <!-- 🔍 Search Bar -->
+  <div class="search-container">
+    <input type="text" id="productSearch" placeholder="Search products..." onkeyup="searchProducts()" />
+  </div>
+
+  <!-- ✅ SUB-NAVIGATION FOR CATEGORIES -->
+  <div class="category-nav">
+    <button data-cat="all" onclick="filterCategory('all')">All</button>
+    <button data-cat="crafts" onclick="filterCategory('crafts')">Crafts</button>
+    <button data-cat="pottery" onclick="filterCategory('pottery')">Pottery</button>
+    <button data-cat="clothing" onclick="filterCategory('clothing')">Clothing</button>
+    <button data-cat="decor" onclick="filterCategory('decor')">Decor</button>
+    <button data-cat="furniture" onclick="filterCategory('furniture')">Furniture</button>
+    <button data-cat="accessories" onclick="filterCategory('accessories')">Accessories</button>
+    <button data-cat="food" onclick="filterCategory('food')">Food</button>
+    <button data-cat="natural" onclick="filterCategory('natural')">Natural</button>
+    <button data-cat="farming" onclick="filterCategory('farming')">Farming Tools</button>
+    <button data-cat="gift" onclick="filterCategory('gift')">Gift Items</button>
+    <button data-cat="baby" onclick="filterCategory('baby')">Baby Items</button>
+    <button data-cat="daily" onclick="filterCategory('daily')">Daily Use</button>
+  </div>
+
+  <!-- Crafts Section -->
+  <div class="category-section crafts">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/basket.jpg" alt="Bamboo Basket">
+        <h3 class="product-title" data-key="bamboo">Bamboo Basket</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/jute.jpg" alt="Jute Bag">
+        <h3 class="product-title" data-key="jute">Jute Bag</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/toymud.jpg" alt="Terracotta Toy">
+        <h3 class="product-title" data-key="terracotta">Terracotta Toy</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/mud.jpg" alt="Mud Toy">
+        <h3 class="product-title" data-key="mud">Mud Toy</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/woodcraft.jpg" alt="Wood Carving Art">
+        <h3 class="product-title" data-key="woodcraft">Wood Carving Art</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/grassmat.jpg" alt="Grass Mat">
+        <h3 class="product-title" data-key="grassmat">Grass Mat</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pottery Section -->
+  <div class="category-section pottery">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/claypot.jpg" alt="Clay Pot">
+        <h3 class="product-title" data-key="claypot">Clay Pot</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/diya.jpg" alt="Decorative Diya">
+        <h3 class="product-title" data-key="diya">Decorative Diya</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/lamp.jpg" alt="Handmade Lamp">
+        <h3 class="product-title" data-key="lamp">Handmade Lamp</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/diyas.jpg" alt="Diyas">
+        <h3 class="product-title" data-key="handmade_diya">Handmade Diya</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/terracotta.jpg" alt="Terracotta Art">
+        <h3 class="product-title" data-key="terracotta_art">Terracotta Art</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/jug.jpg" alt="Water Jugs">
+        <h3 class="product-title" data-key="jug">Water Jugs</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Clothing Section -->
+  <div class="category-section clothing">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/khadi.jpg" alt="Khadi Kurta">
+        <h3 class="product-title" data-key="kurta">Khadi Kurta</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/woolshawal.jpg" alt="Wool Shawl">
+        <h3 class="product-title" data-key="shawl">Wool Shawl</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/handloom.jpg" alt="Handloom Saree">
+        <h3 class="product-title" data-key="saree">Handloom Saree</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/jacket.jpg" alt="Handwoven Jacket">
+        <h3 class="product-title" data-key="jacket">Handwoven Jacket</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/dupatta.jpg" alt="Cotton Dupatta">
+        <h3 class="product-title" data-key="dupatta">Cotton Dupatta</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/blouse.jpg" alt="Block Print Blouse">
+        <h3 class="product-title" data-key="blouse">Block Print Blouse</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Decor Section -->
+  <div class="category-section decor">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/wall.jpg" alt="Wall Hangings">
+        <h3 class="product-title" data-key="wall">Wall Hangings</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/lamps.jpg" alt="Handmade Lamps">
+        <h3 class="product-title" data-key="lamps">Handmade Lamps</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/figurines.jpg" alt="Clay Figurines">
+        <h3 class="product-title" data-key="figurines">Clay Figurines</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/toran.jpg" alt="Traditional Toran">
+        <h3 class="product-title" data-key="toran">Traditional Toran</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/mirror.jpg" alt="Decorative Mirror Frame">
+        <h3 class="product-title" data-key="mirror">Decorative Mirror Frame</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/bell.jpg" alt="Metal Hanging Bells">
+        <h3 class="product-title" data-key="bell">Metal Hanging Bells</h3>
+        <button>Add to Cart</button>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Furniture Section -->
+  <div class="category-section  furniture ">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/charpai.jpg" alt="Charpai Cot">
+        <h3 class="product-title" data-key="cot">Charpai Co</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/stool.jpg" alt="Small Wooden Stools">
+        <h3 class="product-title" data-key="stool">Small Wooden Stools</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/box.jpg" alt="Hand-carved Boxes">
+        <h3 class="product-title" data-key="box">Hand-carved Boxes</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/swing.jpg" alt="Wooden Jhula">
+        <h3 class="product-title" data-key="jhula">Wooden Jhula</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/bench.jpg" alt="Village Bench">
+        <h3 class="product-title" data-key="bench">Village Bench</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/rack.jpg" alt="Bamboo Storage Rack">
+        <h3 class="product-title" data-key="rack">Bamboo Storage Rack</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Accessories Section -->
+  <div class="category-section accessories">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/jewelry.jpg" alt="Handmade Jewelry">
+        <h3 class="product-title" data-key="jewelry">Handmade Jewelr</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/necklace.jpg" alt="Beaded Necklaces">
+        <h3 class="product-title" data-key="necklace">VBeaded Necklaces</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/anklets.jpg" alt="Anklets">
+        <h3 class="product-title" data-key="anklets">Anklets</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/bangles.jpg" alt="Terracotta Bangles">
+        <h3 class="product-title" data-key="bangles">Terracotta Bangles</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/earrings.jpg" alt="Beaded Earrings">
+        <h3 class="product-title" data-key="earrings">Beaded Earrings</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/hairpin.jpg" alt="Handmade Hairpin">
+        <h3 class="product-title" data-key="hairpin">Handmade Hairpin</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Food Section -->
+  <div class="category-section food">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/honey.jpg" alt="Organic Honey">
+        <h3 class="product-title" data-key="honey">Organic Honey</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/pickles.jpg" alt="Homemade Pickle">
+        <h3 class="product-title" data-key="pickle">Homemade Pickle</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/papad.jpg" alt="Handmade Papads">
+        <h3 class="product-title" data-key="papad">Handmade Papads</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/spices.jpg" alt="Spices">
+        <h3 class="product-title" data-key="spices">Spices</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/millet.jpg" alt="Organic Millets">
+        <h3 class="product-title" data-key="millets">Organic Millets</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/jaggery.jpg" alt="Village Jaggery">
+        <h3 class="product-title" data-key="jaggery">Village Jaggery</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Natural Section -->
+  <div class="category-section natural">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/soap.jpg" alt="Herbal Soaps">
+        <h3 class="product-title" data-key="soap">Herbal Soaps</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/dung.jpg" alt="Cow Dung Cakes">
+        <h3 class="product-title" data-key="dung">Cow Dung Cakes</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/items.jpg" alt="Eco-friendly items">
+        <h3 class="product-title" data-key="ecoitems">Eco-friendly items</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/leavesplate.jpg" alt="Sal Leaf Plates">
+        <h3 class="product-title" data-key="salplates">Sal Leaf Plates</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/aloevera.jpg" alt="Aloe Vera Gel">
+        <h3 class="product-title" data-key="aloevera">Aloe Vera Gel</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/neemstick.jpg" alt="Neem Sticks">
+        <h3 class="product-title" data-key="neemsticks">Neem Sticks</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Farming Tools Section -->
+  <div class="category-section farming">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/sickle.jpg" alt="Sickles">
+        <h3 class="product-title" data-key="sickles">Sickles</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/dispenser.jpg" alt="Wooden Plou Seed Dispenser">
+        <h3 class="product-title" data-key="dispenser">Wooden Plou Seed Dispenser</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/hoe.jpg" alt="Hand Hoe">
+        <h3 class="product-title" data-key="hoe">Hand Hoe</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/spade.jpg" alt="Iron Spade">
+        <h3 class="product-title" data-key="spade">Iron Spade</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/kudal.jpg" alt="Wooden Plough">
+        <h3 class="product-title" data-key="plough">Wooden Plough</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/seeder.jpg" alt="Manual Seeder">
+        <h3 class="product-title" data-key="seeder">Manual Seeder</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Gift Items Section -->
+  <div class="category-section gift">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/craft.jpg" alt="Craft Combo Sets">
+        <h3 class="product-title" data-key="combo">Craft Combo Sets</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/hampers.jpg" alt="Ethnic Hampers">
+        <h3 class="product-title" data-key="hampers">Ethnic Hampers</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/bracelet.jpg" alt="Handmade Bracelet">
+        <h3 class="product-title" data-key="bracelet">Handmade Bracelet</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/woodengift.jpg" alt="Wooden Gift Box">
+        <h3 class="product-title" data-key="woodengift">Wooden Gift Box</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/tray.jpg" alt="Decorative Tray">
+        <h3 class="product-title" data-key="tray">Decorative Tray</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/keychain.jpg" alt="Crafted Keychains">
+        <h3 class="product-title" data-key="keychain">Crafted Keychains</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Baby Items Section -->
+  <div class="category-section baby">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/cradle.jpg" alt="Handmade Cradle">
+        <h3 class="product-title" data-key="cradle">Handmade Cradle</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/nappies.jpg" alt="Cotton Nappies">
+        <h3 class="product-title" data-key="nappies">Cotton Nappies</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/babysoap.jpg" alt="Natural Baby Soap">
+        <h3 class="product-title" data-key="babysoap">Natural Baby Soap</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/babytoys.jpg" alt="Handmade Baby Toys">
+        <h3 class="product-title" data-key="babytoys">Handmade Baby Toys</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/babyblanket.jpg" alt="Cotton Baby Blanket">
+        <h3 class="product-title" data-key="babyblanket">Cotton Baby Blanket</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/babymittens.jpg" alt="Knitted Baby Mittens">
+        <h3 class="product-title" data-key="babymittens">Knitted Baby Mittens</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Daily Use Section -->
+  <div class="category-section daily">
+    <div class="product-section">
+      <div class="product-card">
+        <img src="images/matka.jpg" alt="Mud Matka">
+        <h3 class="product-title" data-key="matka">Mud Matka</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/broom.jpg" alt="Cocount Broom">
+        <h3 class="product-title" data-key="broom">Cocount Broom</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/plate.jpg" alt="Palm Leaf Plates">
+        <h3 class="product-title" data-key="plates">Palm Leaf Plates</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/woodenspoon.jpg" alt="Wooden Spoon Set">
+        <h3 class="product-title" data-key="woodenspoon">Wooden Spoon Set</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/copperbottle.jpg" alt="Copper Water Bottle">
+        <h3 class="product-title" data-key="copperbottle">Copper Water Bottle</h3>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/clothbag.jpg" alt="Handmade Cloth Bag">
+        <h3 class="product-title" data-key="clothbag">Handmade Cloth Bag</h3>
+        <button>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+
+    // ✅ Existing Category Filter
+    function filterCategory(category) {
+      const sections = document.querySelectorAll('.category-section');
+      sections.forEach(section => {
+        if (category === 'all' || section.classList.contains(category)) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    }
+
+    // ✅ Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // ✅ Search Products by Name
+    function searchProducts() {
+      const input = document.getElementById('productSearch').value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const title = card.querySelector('h3').innerText.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // ✅ Scroll to Top Button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const translations = {
+      en: {
+        bamboo: "Bamboo Basket",
+        jute: "Jute Bag",
+        terracotta: "Terracotta Toy",
+        mud: "Mud Toy",
+        woodcraft: "Wood Carving Art",
+        grassmat: "Grass Mat",
+        claypot: "Clay Pot",
+        diya: "Decorative Diya",
+        lamp: "Handmade Lamp",
+        handmade_diya: "Handmade Diya",
+        terracotta_art: "Terracotta Art",
+        jug: "Water Jugs",
+        kurta: "Khadi Kurta",
+        shawl: "Wool Shawl",
+        saree: "Handloom Saree",
+        jacket: "Handwoven Jacket",
+        dupatta: "Cotton Dupatta",
+        blouse: "Block Print Blouse",
+        wall: "Wall Hangings",
+        lamps: "Handmade Lamps",
+        figurines: "Clay Figurines",
+        toran: "Traditional Toran",
+        mirror: "Decorative Mirror Frame",
+        bell: "Metal Hanging Bells",
+        cot: "Charpai Cot",
+        stool: "Small Wooden Stools",
+        box: "Hand-carved Boxes",
+        jhula: "Wooden Jhula",
+        bench: "Village Bench",
+        rack: "Bamboo Storage Rack",
+        jewelry: "Handmade Jewelry",
+        necklace: "Beaded Necklaces",
+        anklets: "Anklets",
+        bangles: "Terracotta Bangles",
+        earrings: "Beaded Earrings",
+        hairpin: "Handmade Hairpin",
+        honey: "Organic Honey",
+        pickle: "Homemade Pickle",
+        papad: "Handmade Papads",
+        spices: "Spices",
+        millets: "Organic Millets",
+        jaggery: "Village Jaggery",
+        soap: "Herbal Soaps",
+        dung: "Cow Dung Cakes",
+        ecoitems: "Eco-friendly items",
+        salplates: "Sal Leaf Plates",
+        aloevera: "Aloe Vera Gel",
+        neemsticks: "Neem Sticks",
+        sickles: "Sickles",
+        dispenser: "Wooden Plou Seed Dispenser",
+        hoe: "Hand Hoe",
+        spade: "Iron Spade",
+        plough: "Wooden Plough",
+        seeder: "Manual Seeder",
+        combo: "Craft Combo Sets",
+        hampers: "Ethnic Hampers",
+        bracelet: "Handmade Bracelet",
+        woodengift: "Wooden Gift Box",
+        tray: "Decorative Tray",
+        keychain: "Crafted Keychains",
+        cradle: "Handmade Cradle",
+        nappies: "Cotton Nappies",
+        babysoap: "Natural Baby Soap",
+        babytoys: "Handmade Baby Toys",
+        babyblanket: "Cotton Baby Blanket",
+        babymittens: "Knitted Baby Mittens",
+        matka: "Mud Matka",
+        broom: "Coconut Broom",
+        plates: "Palm Leaf Plates",
+        woodenspoon: "Wooden Spoon Set",
+        copperbottle: "Copper Water Bottle",
+        clothbag: "Handmade Cloth Bag",
+        category: {
+          all: "All",
+          crafts: "Crafts",
+          pottery: "Pottery",
+          clothing: "Clothing",
+          decor: "Decor",
+          furniture: "Furniture",
+          accessories: "Accessories",
+          food: "Food",
+          natural: "Natural",
+          farming: "Farming Tools",
+          gift: "Gift Items",
+          baby: "Baby Items",
+          daily: "Daily Use"
+        }
+      },
+
+      kn: {
+        bamboo: "ಬಿದಿರಿನ ಬಟ್ಟಲು",
+        jute: "ಜ್ಯೂಟ್ ಚೀಲ",
+        terracotta: "ಟೆರಾಕೋಟಾ ಆಟಿಕೆ",
+        mud: "ಮಣ್ಣು ಆಟಿಕೆ",
+        woodcraft: "ಮರದ ಕೆತ್ತನೆ ಕಲೆ",
+        grassmat: "ಹುಲ್ಲಿನ ಚಪ್ಪರ",
+        claypot: "ಮಣ್ಣಿನ ಹಂಡಿ",
+        diya: "ಅಲಂಕರಿಸಿದ ದೀಪ",
+        lamp: "ಹ್ಯಾಂಡ್‌ಮೇಡ್ ಲ್ಯಾಂಪ್",
+        handmade_diya: "ಹ್ಯಾಂಡ್‌ಮೇಡ್ ದೀಪ",
+        terracotta_art: "ಟೆರಾಕೋಟಾ ಕಲೆ",
+        jug: "ನೀರಿನ ಜಗ್‌ಗಳು",
+        kurta: "ಖಾದಿ ಕುರ್ಥಾ",
+        shawl: "ಊನದ ಶಾಲು",
+        saree: "ಹ್ಯಾಂಡ್‌ಲೂಮ್ ಸೀರೆ",
+        jacket: "ಕೆಂಪು ಹಣೆದ ಜಾಕೆಟ್",
+        dupatta: "ಹತ್ತಿನ ದುಪಟ्टा",
+        blouse: "ಬ್ಲಾಕ್ ಪ್ರಿಂಟ್ ಬ್ಲೌಸ್",
+        wall: "ಗೋಡೆ ಅಲಂಕಾರಗಳು",
+        lamps: "ಹ್ಯಾಂಡ್‌ಮೇಡ್ ಲ್ಯಾಂಪ್‌ಗಳು",
+        figurines: "ಮಣ್ಣಿನ ಮೂರ್ತಿಗಳು",
+        toran: "ಪಾರಂಪರಿಕ ತೋರಣ",
+        mirror: "ಅಲಂಕಾರಿಕ ಕಣ್ಣಾಡಿಕೆ ಚೌಕಟ್ಟು",
+        bell: "ಲೋಹದ ಹೋಲುವ ಗಂಟೆಗಳು",
+        cot: "ಚರ್ಪಾಯಿ ಹಾಸಿಗೆ",
+        stool: "ಸಣ್ಣ ಮರದ ಮಣೆ",
+        box: "ಕೆತ್ತನೆಯ ದಿಬ್ಬಗಳು",
+        jhula: "ಮರದ ಜುಲಾ",
+        bench: "ಹಳ್ಳಿಯ ಬೆಂಚ್",
+        rack: "ಬಿದಿರಿನ ಸಂಗ್ರಹ ಶೆಲ್ಫ್",
+        jewelry: "ಹ್ಯಾಂಡ್‌ಮೇಡ್ ಆಭರಣ",
+        necklace: "ಮೊತಿಯರ ನಿಕ್ಲೆಸ್‌ಗಳು",
+        anklets: "ಪಾಯಲಗಳು",
+        bangles: "ಟೆರಾಕೋಟಾ ಚೂಡಿಗಳು",
+        earrings: "ಮೋತಿಯ ಕಿವೊಲಗಳು",
+        hairpin: "ಹ್ಯಾಂಡ್‌ಮೇಡ್ ಕೂದಲಿನ ಕೀಲಿ",
+        honey: "ಆರ್ಗಾನಿಕ್ ಜೇನು",
+        pickle: "ಮನೆಮದ್ದಿನ ಉಪ್ಪಿನಕಾಯಿ",
+        papad: "ಹ್ಯಾಂಡ್‌ಮೇಡ್ ಪಾಪಡ್ಸ್",
+        spices: "ಮಸಾಲೆ ಪದಾರ್ಥಗಳು",
+        millets: "ಆರ್ಗಾನಿಕ್ ಸಿರಿಧಾನ್ಯಗಳು",
+        jaggery: "ಗ್ರಾಮೀಣ ಬೆಲ್ಲ",
+        soap: "ಹೆರ್ಬಲ್ ಸಾಬೂನುಗಳು",
+        dung: "ಹಸುಗಸಲ ಗಟ್ಟೆಗಳು",
+        ecoitems: "ಪರಿಸರ ಸ್ನೇಹಿ ವಸ್ತುಗಳು",
+        salplates: "ಸಾಳು ಎಲೆಯ ತಟ್ಟೆಗಳು",
+        aloevera: "ಅಲೋವೆರಾ ಜೆಲ್",
+        neemsticks: "ಬೆವುಕಟ್ಟೆ ಕಡ್ಡಿಗಳು",
+        sickles: "ಕೋಲುಗಳು",
+        dispenser: "ಮರದ ಬೀಜ ವಿತರಣಾ ಸಾಧನ",
+        hoe: "ಕೈ ಕೊಳವಿ",
+        spade: "ಉಕ್ಕಿನ ಉಗುರೆ",
+        plough: "ಮರದ ಹಾಲುಗಾಡು",
+        seeder: "ಮೆನುಯಲ್ ಬೀಜ ಹರಡುವ ಸಾಧನ",
+        combo: "ಕ್ರಾಫ್ಟ್ ಕಾಂಬೊ ಸೆಟ್‌ಗಳು",
+        hampers: "ಜಾನಪದ ಹ್ಯಾಮ್ಪರ್‌ಗಳು",
+        bracelet: "ಹಸ್ತನಿರ್ಮಿತ ಬ್ರಾಸ್ಲೆಟ್",
+        woodengift: "ಮರದ ಉಡುಗೊರೆ ಡಬ್ಬಿ",
+        tray: "ಅಲಂಕರಿಸಿದ ತಟ್ಟೆ",
+        keychain: "ಕ್ರಾಫ್ಟೆಡ್ ಕೀಚೇನ್‌ಗಳು",
+        cradle: "ಹ್ಯಾಂಡ್‌ಮೇಡ್ ತೂಗು ಹಾಸಿಗೆ",
+        nappies: "ಕಾಟನ್ ನ್ಯಾಪಿಗಳು",
+        babysoap: "ಸ್ವಾಭಾವಿಕ ಬೇಬಿ ಸಾಬೂನು",
+        babytoys: "ಹಸ್ತನಿರ್ಮಿತ ಶಿಶು ಆಟಿಕೆಗಳು",
+        babyblanket: "ಕಾಟನ್ ಬೇಬಿ ಹಾಸಿಗೆ",
+        babymittens: "ನೇಕೆದ ಶಿಶು ಕೈಗವಸುಗಳು",
+        matka: "ಮಣ್ಣು ಮಟ್ಕಾ",
+        broom: "ತೆಂಗಿನ ತೂರಿ",
+        plates: "ಪಾಂಡು ಎಲೆ ತಟ್ಟೆಗಳು",
+        woodenspoon: "ಮರದ ಸ್ಪೂನ್ ಸೆಟ್",
+        copperbottle: "ತಾಮ್ರದ ನೀರಿನ ಬಾಟಲ್",
+        clothbag: "ಹಸ್ತನಿರ್ಮಿತ ಬಟ್ಟೆಯ ಚೀಲ",
+        category: {
+          all: "ಎಲ್ಲಾ",
+          crafts: "ಕ್ರಾಫ್ಟ್ಸ್",
+          pottery: "ಮಣ್ಣಿನ ಪಾತ್ರೆ",
+          clothing: "ಉಡುಗೆ",
+          decor: "ಅಲಂಕಾರ",
+          furniture: "ಫರ್ನಿಚರ್",
+          accessories: "ಆಕ್ಸೆಸೊರೀಸ್",
+          food: "ಆಹಾರ",
+          natural: "ಸ್ವಾಭಾವಿಕ",
+          farming: "ಕೃಷಿ ಉಪಕರಣಗಳು",
+          gift: "ಕೊಡುಗೆ ವಸ್ತುಗಳು",
+          baby: "ಮಕ್ಕಳ ವಸ್ತುಗಳು",
+          daily: "ದೈನಂದಿನ ಬಳಕೆ"
+        }
+      },
+
+      hi: {
+        bamboo: "बांस की टोकरी",
+        jute: "जूट बैग",
+        terracotta: "टेरीकोटा खिलौना",
+        mud: "मिट्टी का खिलौना",
+        woodcraft: "लकड़ी की नक्काशी कला",
+        grassmat: "घास की चटाई",
+        claypot: "मिट्टी का बर्तन",
+        diya: "सजावटी दीया",
+        lamp: "हस्तनिर्मित लैंप",
+        handmade_diya: "हस्तनिर्मित दीया",
+        terracotta_art: "टेरीकोटा कला",
+        jug: "पानी के जग",
+        kurta: "खादी कुर्ता",
+        shawl: "ऊन का शॉल",
+        saree: "हैंडलूम साड़ी",
+        jacket: "हाथ से बुना जैकेट",
+        dupatta: "कॉटन दुपट्टा",
+        blouse: "ब्लॉक प्रिंट ब्लाउज",
+        wall: "दीवार सजावट",
+        lamps: "हस्तनिर्मित लैंप",
+        figurines: "मिट्टी की मूर्तियाँ",
+        toran: "पारंपरिक तोरण",
+        mirror: "सजावटी दर्पण फ्रेम",
+        bell: "धातु की लटकती घंटियाँ",
+        cot: "खटिया",
+        stool: "लकड़ी की छोटी मेज",
+        box: "हस्तनिर्मित बॉक्स",
+        jhula: "लकड़ी का झूला",
+        bench: "गाँव की बेंच",
+        rack: "बांस की स्टोरेज रैक",
+        jewelry: "हस्तनिर्मित गहने",
+        necklace: "मोतियों की माला",
+        anklets: "पायल",
+        bangles: "टेरीकोटा चूड़ियाँ",
+        earrings: "मोतियों की बालियाँ",
+        hairpin: "हस्तनिर्मित हेयरपिन",
+        honey: "जैविक शहद",
+        pickle: "घर का बना अचार",
+        papad: "हाथ से बने पापड़",
+        spices: "मसाले",
+        millets: "जैविक मिलेट्स",
+        jaggery: "गाँव का गुड़",
+        soap: "हर्बल साबुन",
+        dung: "गोबर के उपले",
+        ecoitems: "इको-फ्रेंडली आइटम्स",
+        salplates: "साल के पत्तों की थालियाँ",
+        aloevera: "एलोवेरा जेल",
+        neemsticks: "नीम की दातुन",
+        sickles: "दरांती",
+        dispenser: "लकड़ी का बीज वित्रण यंत्र",
+        hoe: "हाथ से चलने वाला कोडाल",
+        spade: "लोहे का फावड़ा",
+        plough: "लकड़ी का हल",
+        seeder: "हाथ से चलने वाली बीज बुवाई मशीन",
+        combo: "क्राफ्ट कॉम्बो सेट",
+        hampers: "पारंपरिक हैम्पर",
+        bracelet: "हस्तनिर्मित ब्रेसलेट",
+        woodengift: "लकड़ी का उपहार बॉक्स",
+        tray: "सजावटी ट्रे",
+        keychain: "हस्तनिर्मित चाबी के छल्ले",
+        cradle: "हस्तनिर्मित झूला",
+        nappies: "कॉटन नैपीज़",
+        babysoap: "प्राकृतिक बेबी साबुन",
+        babytoys: "हस्तनिर्मित शिशु खिलौने",
+        babyblanket: "कॉटन बेबी कंबल",
+        babymittens: "बुने हुए बेबी मिटन",
+        matka: "मिट्टी का मटका",
+        broom: "नारियल झाड़ू",
+        plates: "पत्तों की थालियाँ",
+        woodenspoon: "लकड़ी के चम्मच सेट",
+        copperbottle: "तांबे की पानी की बोतल",
+        clothbag: "हस्तनिर्मित कपड़े का बैग",
+        category: {
+          all: "सभी",
+          crafts: "हस्तशिल्प",
+          pottery: "मिट्टी के बर्तन",
+          clothing: "कपड़े",
+          decor: "सजावट",
+          furniture: "फर्नीचर",
+          accessories: "सामान",
+          food: "भोजन",
+          natural: "प्राकृतिक",
+          farming: "कृषि उपकरण",
+          gift: "उपहार वस्तुएं",
+          baby: "बच्चों की वस्तुएं",
+          daily: "दैनिक उपयोग"
+        }
+      }
+    };
+
+
+
+
+    function changeLanguage() {
+      const lang = document.getElementById("languageSelect").value;
+      const titles = document.querySelectorAll('.product-title');
+      const buttons = document.querySelectorAll('[data-cat]');
+
+      // ✅ Update product titles
+      titles.forEach(title => {
+        const key = title.getAttribute('data-key');
+        if (translations[lang][key]) {
+          title.textContent = translations[lang][key];
+        }
+      });
+
+      // ✅ Update category buttons
+      buttons.forEach(button => {
+        const key = button.getAttribute('data-cat');
+        if (translations[lang].category && translations[lang].category[key]) {
+          button.textContent = translations[lang].category[key];
+        }
+      });
+    }
+
+
+
+  </script>
+</body>
+
+</html
