@@ -1,0 +1,45 @@
+<!-- Order summary and payment info -->
+ <!-- order-summary.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Summary - Village Handmade</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="logo">🧺 Village Handmade</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="user/dashboard.html">My Orders</a>
+    </nav>
+  </header>
+
+  <section class="order-summary">
+    <h2>Order Summary</h2>
+
+    <div class="order-box">
+      <h3>Items:</h3>
+      <ul>
+        <li>Handmade Basket – ₹200 x 1</li>
+        <li>Clay Pot – ₹150 x 2</li>
+      </ul>
+      <p><strong>Subtotal:</strong> ₹500</p>
+      <p><strong>Delivery:</strong> ₹50</p>
+      <hr />
+      <p><strong>Total Amount:</strong> ₹550</p>
+    </div>
+
+    <div class="address-box">
+      <h3>Delivery Address</h3>
+      <textarea rows="4" placeholder="Enter full address with pin code"></textarea>
+    </div>
+
+    <button class="checkout-btn">Place Order</button>
+  </section>
+<script src="js/app.js"></script>
+</body>
+</html>
